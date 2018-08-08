@@ -15,4 +15,4 @@
 
 # Thanks 
 
-- [SingleTouchView](http://blog.csdn.net/xiaanming/article/details/42833893)提供的api接口服务
+- [zce](https://github.com/zce/douban-api-proxy)提供的豆瓣api接口代理服务，用于解决豆瓣屏蔽小程序请求问题
