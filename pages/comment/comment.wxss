@@ -1,0 +1,3 @@
+/* pages/comment/comment.wxss */
+@import '../details/details.wxss'
+.a{position: a}

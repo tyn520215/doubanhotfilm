@@ -1,0 +1,16 @@
+ <view class="container">
+  <view class="userinfo">
+      <image class="userinfo-avatar" src="../../imgae/tx.jpg" background-size="cover"></image>
+      <text class="userinfo-nickname">gakkisama</text>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">Github</text>
+
+
+  </view>
+    <view>
+
+    <text class="user-motto">https://github.com/tyn520215</text>
+
+  </view>
+</view> 

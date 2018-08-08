@@ -1,0 +1,43 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/list/list",
+    "pages/details/details",
+    "pages/music/music",
+    "pages/film/film",
+    "pages/book/book",
+    "pages/comment/comment",
+    "pages/search/search"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "豆瓣",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "selectedColor": "#c4a14a",
+    "color": "#666",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "电影",
+        "iconPath": "imgae/filma.png",
+        "selectedIconPath": "imgae/filmb.png"
+      },
+      {
+        "pagePath": "pages/search/search",
+        "text": "搜索",
+        "iconPath": "imgae/searcha.png",
+        "selectedIconPath": "imgae/searchb.png"
+      },
+      {
+        "pagePath": "pages/list/list",
+        "text": "我",
+        "iconPath": "imgae/usera.png",
+        "selectedIconPath": "imgae/userb.png"
+      }
+    ]
+  }
+}

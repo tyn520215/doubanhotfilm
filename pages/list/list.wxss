@@ -1,0 +1,32 @@
+/* pages/list/list.wxss */
+/**index.wxss**/
+@import "../../weui.wxss";
+
+.page-section{
+  margin-bottom: 20rpx;
+}
+.fontLoad{text-align: center;font-size: 14px; color: #c4a14a;}
+.flex-wrp {display: flex;}
+.flex-item{text-align: center;width: 20%;height: 30px;line-height: 30px; font-size: 14px;color: #666;padding: 5px}
+.hoverTitle{color: #c4a14a;border-bottom: 1px #c4a14a solid}
+
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+  margin-top: 100px;
+}

@@ -1,0 +1,5 @@
+<view class="page-body">
+  <view class="page-section tc">
+    <video id="myVideo" src="{{url}}" autoplay="true"></video>
+  </view>
+</view>

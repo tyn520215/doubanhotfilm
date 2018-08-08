@@ -1,0 +1,91 @@
+<wxs src="../../fittler/fittler.wxs" module="tools" />
+<view class="weui-loadmore" wx:if="{{loading}}">
+    <view class="weui-loading"></view>
+    <view class="weui-loadmore__tips">正在加载</view>
+</view>
+<view class="page back_e3" wx:if="{{!loading}}">
+  <navigator class="weui-media-box colorBlack weui-media-box_appmsg" >
+    <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+        <image class="weui-media-box__thumb" src="{{res.images.large}}"/>
+    </view>
+    <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+        <view class="weui-media-box__title">{{res.title}}</view>
+        <view class="weui-media-box__desc">{{res.original_title}}</view>
+        <view class="weui-media-box__score" wx:if="{{ishot}}"><span class="hoverTitle">{{res.rating.average}}</span>
+        <span class="commentsNum">({{tools.getCommentNum(res.comments_count)}}万人评)</span></view>
+        <view class="weui-media-box__score" wx:else><span class="hoverTitle">{{res.rating.average}}</span>人想看</view>
+
+          <view class="weui-media-box__desc">
+          {{res.tags[0]}}、{{res.tags[1]}}
+        </view>
+        <view class="weui-media-box__desc">
+          {{res.countries}}/{{res.durations}}
+        </view>
+        <view class="weui-media-box__desc">
+        {{res.mainland_pubdate}}/{{res.countries}}上映
+        </view>
+    </view> 
+  </navigator>
+  <view class='back_white pad10'>
+     <view class="weui-article__p" wx:if="{{!summaryShow}}">{{detailshow}}</view>
+     <view class="weui-article__p" wx:if="{{summaryShow}}">{{detailHidden}}</view>
+
+     <view bindtap="showsummary" style='text-align: center'>
+      <image src='../../imgae/arrow-down-o.svg' class="showsummary" />
+     </view>
+  </view>
+  
+    <view  class="section section_gap pad10 back_white border_bottom">
+      <view class="casts_title">演员</view>
+      <scroll-view  scroll-x="true">
+      <view class="scroll-view_H">
+        <view wx:for="{{casts}}" wx:key="{{index}}" class="castsLi">
+          <image src="{{item.avatars.small}}" class='casts_image' id="{{item.avatars.small}}" bindtap="previewImage"/>
+          <view>{{item.name}}</view>
+        </view>
+        </view>
+      </scroll-view>
+    </view>
+
+    <view  class="section section_gap pad10 back_white border_bottom" wx:if="res.trailers.length>0">
+      <view class="casts_title">视频预告</view>
+      <scroll-view  scroll-x="true" style="height: 140px;">
+      <view class="scroll-view_H">
+        <view wx:for="{{res.trailers}}" wx:key="{{index}}" id="{{index}}" class="castsLi" bindtap="jumpVideo">
+            <image src='{{item.medium}}' class="videoLi" />
+            <image src='../../imgae/play.svg' class="playLi" />
+        </view>
+        </view>
+      </scroll-view>
+    </view>
+
+    <view class="weui-panel">
+        <view class="weui-panel__hd">观众评论</view>
+        <view class="weui-panel__bd" wx:for="{{replayList}}" wx:key="{{index}}" >
+            <view class="weui-media-box weui-media-box_text ">
+                <view class="weui-media-box__title weui-media-box__title_in-text disflex">
+                  <view class="weui-cell__hd"><image src="{{item.author.avatar}}" style="width: 20px;height: 20px;margin-right:5px;border-radius: 10px"/>                    </view>
+                {{item.author.name}}</view>
+                <view class="weui-media-box__desc">{{item.content}}</view>
+                <view class="weui-media-box__info h20 bbotom">
+                    <view class="weui-media-box__info__meta">{{item.created_at}}</view>
+                    <view class="weui-media-box__info__meta fr">
+                        <image src='../../imgae/good.svg' style="width: 18px;height: 18px;" />
+                              <view class="fr"> {{item.useful_count}}</view>
+                   </view>
+              
+
+                </view>
+            </view>
+        </view>
+        <view class="weui-panel__ft">
+          <navigator  url="/pages/comment/comment?id={{id}}">
+              <view class="weui-cell weui-cell_access weui-cell_link all_replay_word">
+                  <view class="weui-cell__bd">查看全部{{total}}条观众评论</view>
+                  <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+              </view>
+            </navigator>
+        </view>
+    </view>
+
+</view>

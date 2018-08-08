@@ -1,0 +1,36 @@
+<view class="comment">
+  <view class="weui-tab__panel">
+    <scroll-view scroll-y style="height: 585px;" bindscrolltolower="addComment">
+         <view class="weui-panel">
+        <view class="weui-panel__hd">所有评论({{total}})条</view>
+        <view class="weui-panel__bd" wx:for="{{list}}" wx:key="{{index}}" >
+            <view class="weui-media-box weui-media-box_text ">
+                <view class="weui-media-box__title weui-media-box__title_in-text disflex">
+                  <view class="weui-cell__hd"><image src="{{item.author.avatar}}" style="width: 20px;height: 20px;margin-right:5px;border-radius: 10px"/>                    </view>
+                {{item.author.name}}</view>
+                <view class="weui-media-box__desc">{{item.content}}</view>
+                <view class="weui-media-box__info h20 bbotom">
+                    <view class="weui-media-box__info__meta">{{item.created_at}}</view>
+                    <view class="weui-media-box__info__meta fr">
+                        <image src='../../imgae/good.svg' style="width: 18px;height: 18px;" />
+                              <view class="fr"> {{item.useful_count}}</view>
+                   </view>
+              
+
+                </view>
+            </view>
+        </view>
+        <view class="page__desc fontLoad" wx:if='{{addFont}}' bindtap="addList">加载更多</view>
+          <view>
+            <view class="weui-loadmore weui-loadmore_line" wx:if='{{no_list}}'>
+                <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无数据</view>
+            </view>
+            <view class="weui-loadmore" wx:if="{{loading}}">
+                <view class="weui-loading"></view>
+                <view class="weui-loadmore__tips">正在加载</view>
+            </view>
+           </view>
+    </view>
+    </scroll-view>
+  </view>
+</view>

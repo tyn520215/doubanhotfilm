@@ -1,0 +1,47 @@
+<wxs src="../../fittler/fittler.wxs" module="tools" />
+<!--index.wxml-->
+<view class="section">
+     <view class="weui-tab">
+            <view class="weui-navbar">
+                <block wx:for="{{tabs}}" wx:key="*this">
+                    <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'hoverTitle' : ''}}" bindtap="tapName">
+                        <view class="weui-navbar__title">{{item}}</view>
+                    </view>
+                </block>
+                 <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view> 
+            </view>
+      <view class="weui-tab__panel">
+            <scroll-view scroll-y style="height: 585px;" >
+            <view class="page">
+                <view class="page__bd">
+                    <view  wx:if="{{list && list.length>0}}">
+                    <navigator wx:for="{{list}}" url="/pages/details/details?id={{item.id}}&ishot={{isTheaters}}" wx:key="{{index}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+                        <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                            <image class="weui-media-box__thumb" src="{{item.images.small}}" />
+                        </view>
+                        <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                            <view class="weui-media-box__title">{{item.title}}</view>
+                            <view wx:if="{{isTheaters}}" class=".weui-media-box__score">评分<span class="hoverTitle">{{item.rating.average}}</span></view>
+                            <view class=".weui-media-box__score" wx:else><span class="hoverTitle">{{item.collect_count}}</span>人想看</view>
+                            <view class="weui-media-box__desc">
+                              主演：{{tools.getName(item.casts)}}
+                            </view>
+                        </view> 
+                    </navigator>
+                <!-- <view class="page__desc fontLoad" wx:if='{{addFont}}' bindtap="addList">加载更多</view> -->
+              </view>
+                    <view class="weui-loadmore weui-loadmore_line" wx:if='{{no_list}}'>
+                        <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无数据</view>
+                    </view>
+                    <view class="weui-loadmore" wx:if="{{loading}}">
+                        <view class="weui-loading"></view>
+                        <view class="weui-loadmore__tips">正在加载</view>
+                    </view>
+                </view>
+            </view>
+          </scroll-view>
+            </view>
+        </view>
+</view>
+
+
